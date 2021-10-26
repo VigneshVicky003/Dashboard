@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./assets/logo.png" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="./main.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="navbar sticky">
+        <a href="#" class="nav-logo"
+          >Dreadnought<img src="./assets/logo.png" alt="logo image"
+        /></a>
+        <ul class="nav-menu">
+          <div class="search">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="search..." />
+          </div>
+          <li class="nav-item"><i class="fas fa-user"></i>Sign in</li>
+          <li class="nav-item">
+            <i class="fas fa-cog"></i>
+          </li>
+          <li class="nav-item">
+            <i class="fas fa-bell"></i>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="left">
+        <hr class="horizontal dark" />
+        <div class="tab tab1 active">
+          <div class="icon active">
+            <i class="fas fa-chart-pie"></i>
+          </div>
+          <p>Dashboard</p>
+        </div>
+        <div class="tab tab2">
+          <div class="icon">
+            <i class="fas fa-chart-bar"></i>
+          </div>
+          <p>Tables</p>
+        </div>
+        <div class="tab tab3">
+          <div class="icon">
+            <i class="fas fa-credit-card"></i>
+          </div>
+          <p>Billing</p>
+        </div>
+        <div class="tab tab4">
+          <div class="icon">
+            <i class="fas fa-receipt"></i>
+          </div>
+          <p>Invoice</p>
+        </div>
+        <div class="tab tab5">
+          <div class="icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <p>My Team</p>
+        </div>
+        <h5>Account Pages</h5>
+        <div class="tab tab5">
+          <div class="icon">
+            <i class="fas fa-user"></i>
+          </div>
+          <p>Profile</p>
+        </div>
+        <div class="tab tab5">
+          <div class="icon">
+            <i class="fas fa-sign-in-alt"></i>
+          </div>
+          <p>Sign in</p>
+        </div>
+        <div class="tab tab5">
+          <div class="icon">
+            <i class="fas fa-user-plus"></i>
+          </div>
+          <p>Sign up</p>
+        </div>
+      </section>
+      <section class="right">
+        <div class="today">
+          <div class="money todaybg">
+            <div class="text">
+              <p>Today's Money</p>
+              <h5>$53,000 <a>+55%</a></h5>
+            </div>
+            <div class="icon">
+              <i class="fas fa-hand-holding-usd"></i>
+            </div>
+          </div>
+          <div class="users todaybg">
+            <div class="text">
+              <p>Today's Users</p>
+              <h5>2,000 <a>+8%</a></h5>
+            </div>
+            <div class="icon">
+              <i class="fas fa-globe-americas"></i>
+            </div>
+          </div>
+          <div class="clients todaybg">
+            <div class="text">
+              <p>New Clients</p>
+              <h5>+3,210 <a>-3%</a></h5>
+            </div>
+            <div class="icon">
+              <i class="fas fa-user-tie"></i>
+            </div>
+          </div>
+          <div class="sales todaybg">
+            <div class="text">
+              <p>Sales</p>
+              <h5>$102,450 <a>+6%</a></h5>
+            </div>
+            <div class="icon">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+          </div>
+        </div>
+        <div class="panels">
+          <div class="panel1">
+            <div class="text">
+              <h6>Built by developers</h6>
+              <h5>Soft UI Dashboard</h5>
+              <p>
+                From colors, cards, typography to complex elements, you will
+                find the full documentation.
+              </p>
+              <div>
+                <h6>Read more</h6>
+                <i class="fas fa-arrow-right"></i>
+              </div>
+            </div>
+            <div class="img">
+              <img src="./assets/rocket-white.png" alt="" />
+            </div>
+          </div>
+          <div class="panel2">
+            <div class="bg">
+              <h2>Work with the rockets</h2>
+              <p>
+                Wealth creation is an evolutionarily recent positive-sum game.
+                It is all about who take the opportunity first.
+              </p>
+              <div>
+                <h6>Read more</h6>
+                <i class="fas fa-arrow-right"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="graphs">
+          <div class="graph1">
+            <h6>Sales Overview</h6>
+            <p><i class="fas fa-arrow-up"></i><b>4%</b> more in 2021</p>
+            <canvas id="myChart" style="width: 100%; max-width: 700px"></canvas>
+          </div>
+          <div class="graph2">
+            <canvas
+              id="pieChart"
+              style="width: 100%; max-width: 800px"
+            ></canvas>
+            <h6>Active Users</h6>
+            <p>(<b>+23%</b>) than last week</p>
+            <div class="activeprogress">
+              <div class="column column1">
+                <div class="row1"><i class="fas fa-user-friends"></i>Users</div>
+                <div class="row2">
+                  <h1>36k</h1>
+                </div>
+                <div class="row3">
+                  <div class="top"></div>
+                </div>
+                </div>
+                <div class="column column2">
+                  <div class="row1"><i class="fas fa-rocket"></i>Clicks</div>
+                  <div class="row2">
+                    <h1>2m</h1>
+                  </div>
+                  <div class="row3">
+                    <div class="top"></div>
+                  </div>
+                  </div>
+                  <div class="column column3">
+                    <div class="row1"><i class="fas fa-credit-card"></i>Sales</div>
+                    <div class="row2">
+                      <h1>435$</h1>
+                    </div>
+                    <div class="row3">
+                      <div class="top"></div>
+                    </div>
+                    </div>
+                    <div class="column column4">
+                      <div class="row1"><i class="fas fa-tools"></i>Items</div>
+                      <div class="row2">
+                        <h1>43</h1>
+                      </div>
+                      <div class="row3">
+                        <div class="top"></div>
+                      </div>
+                      </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="works">
+          <div class="orders">
+            <h6>Orders Overview</h6>
+            <p><i class="fas fa-arrow-up"></i><b>24%</b> this month</p>
+            <div class="order order1">
+              <i class="fas fa-bell"></i>
+              <div class="desc">
+                <h6>$2400, Design changes</h6>
+                <p>22 DEC 7:20 PM</p>
+              </div>
+            </div>
+            <div class="order order2">
+              <i class="fas fa-briefcase"></i>
+              <div class="desc">
+                <h6>New order #1832412</h6>
+                <p>21 DEC 11 PM</p>
+              </div>
+            </div>
+            <div class="order order3">
+              <i class="fas fa-shopping-cart"></i>
+              <div class="desc">
+                <h6>Server payments for April</h6>
+                <p>21 DEC 9:34 PM</p>
+              </div>
+            </div>
+            <div class="order order4">
+              <i class="fas fa-credit-card"></i>
+              <div class="desc">
+                <h6>New card added for order #4395133</h6>
+                <p>20 DEC 2:20 AM</p>
+              </div>
+            </div>
+            <div class="order order5">
+              <i class="fas fa-key"></i>
+              <div class="desc">
+                <h6>Unlock packages for development</h6>
+                <p>18 DEC 4:54 AM</p>
+              </div>
+            </div>
+          </div>
+          <div class="projects">
+            <h6>Projects</h6>
+            <p><i class="fas fa-check"></i><b>30 done</b> this month</p>
+            <div class="roll roll1">
+              <h5 class="col1">COMPANIES</h5>
+              <h5 class="col2">BUDGET</h5>
+              <h5 class="col3">COMPLETION</h5>
+            </div>
+            <hr>
+            <div class="roll roll2">
+              <div class="col1">
+                <img src="./assets/logo-xd.svg" alt="">
+                <p>
+                  Soft UI XD Version</p>
+              </div>
+              <p class="col2">$14,000</p>
+              <div class="col3">
+                <p>60%</p>
+                <div class="bar1">
+                  <div class="bar2"></div>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <div class="roll roll3">
+              <div class="col1">
+                <img src="./assets/logo-atlassian.svg" alt="">
+                <p>
+                  Add Progress Track</p>
+              </div>
+              <p class="col2">$3,000</p>
+              <div class="col3">
+                <p>10%</p>
+                <div class="bar1">
+                  <div class="bar2"></div>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <div class="roll roll4">
+              <div class="col1">
+                <img src="./assets/logo-slack.svg" alt="">
+                <p>
+                  Fix Platform Errors</p>
+              </div>
+              <p class="col2">Not set</p>
+              <div class="col3">
+                <p>90%</p>
+                <div class="bar1">
+                  <div class="bar2"></div>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <div class="roll roll5">
+              <div class="col1">
+                <img src="./assets/logo-spotify.svg" alt="">
+                <p>
+                  Launch our Mobile App</p>
+              </div>
+              <p class="col2">$20,500</p>
+              <div class="col3">
+                <p>100%</p>
+                <div class="bar1">
+                  <div class="bar2"></div>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <div class="roll roll6">
+              <div class="col1">
+                <img src="./assets/logo-invision.svg" alt="">
+                <p>
+                  Redesign New Online Shop</p>
+              </div>
+              <p class="col2">$2,000</p>
+              <div class="col3">
+                <p>40%</p>
+                <div class="bar1">
+                  <div class="bar2"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer>
+          <p>© 2021, made with ❤ by <a>Vignesh Kumar</a></p>
+          <div class="social">
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-github"></i>
+            <i class="fab fa-linkedin"></i>
+          </div>
+        </footer>
+      </section>
+    </main>
+  </body>
+  <script src="./main.js"></script>
+  <script>
+    var xValues = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
+
+    new Chart("myChart", {
+      type: "line",
+      data: {
+        labels: xValues,
+        datasets: [
+          {
+            data: [860, 1140, 1060, 1060, 1070, 1110, 1330, 2210, 7830, 2478],
+            borderColor: "red",
+            fill: false,
+          },
+          {
+            data: [1600, 1700, 1700, 1900, 2000, 2700, 4000, 5000, 6000, 7000],
+            borderColor: "green",
+            fill: false,
+          },
+          {
+            data: [300, 700, 2000, 5000, 6000, 4000, 2000, 1000, 200, 100],
+            borderColor: "blue",
+            fill: false,
+          },
+        ],
+      },
+      options: {
+        legend: { display: false },
+      },
+    });
+  </script>
+  <script>
+    var xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
+    var yValues = [55, 49, 44, 24, 15];
+    var barColors = ["#b91d47", "#00aba9", "#2b5797", "#e8c3b9", "#1e7145"];
+
+    new Chart("pieChart", {
+      type: "doughnut",
+      data: {
+        labels: xValues,
+        datasets: [
+          {
+            backgroundColor: barColors,
+            data: yValues,
+          },
+        ],
+      },
+    });
+  </script>
+</html>
